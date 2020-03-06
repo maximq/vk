@@ -6,3 +6,8 @@ $.ajax({
     console.log(data)
   }
 });
+  VK.init(function(){
+    alert("good");
+  }, function(){
+    alert("bad");
+  }, '5.62');
