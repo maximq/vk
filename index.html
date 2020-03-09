@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
@@ -34,39 +33,26 @@
     document.getElementById("vk_api_transport").appendChild(el);
   }, 0);
 </script>
+<div class="header">
+  <div class="ava">
+    <a href="#" onclick="authVK()"><img class="avatarka" src="img/camera_50.png"></a>
+  </div>
+  <div style="margin: auto; margin-top: -20px; width: 300px; text-align: center;">
+    <form onsubmit="getAlbums(this.id.value); return false">
+      <input title="формат: 123; для групп: -123" class="field" name="id" type="text" value="-51812607">
+      <a title="Очистить список" href="#" onclick="Clear()" style="color: #d9e2ec; text-decoration: none;">&#10006;</a>
+    </form>
+  </div>
 
-<p>Hello world! This is HTML5 Boilerplate.</p>
-<form><input type="button" onclick="authVK()" value="login"></form>
+</div>
 
-<script>
-  function authVK() {
-    VK.Auth.login(function(response) {
-      if (response.session) {
-        /* Пользователь успешно авторизовался */
-        console.log('success');
-        VK.Api.call('account.getProfileInfo', function(r) {
-          if(r.response) {
-            alert('Привет, ' + r.response[0].first_name);
-          }
-        });
-        if (response.settings) {
-          /* Выбранные настройки доступа пользователя, если они были запрошены */
-          console.log('test')
-        }
-      } else {
-        /* Пользователь нажал кнопку Отмена в окне авторизации */
-        console.log('operation cancelled')
-      }
-    });
-  }
-</script>
-
+<div style="margin: auto; width: 90%; margin-top: 30px;">
+  <div id="albums"></div>
+</div>
+<script src="js/main.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
 
-
-  <script src="js/main.js"></script>
 </body>
-
 </html>
